@@ -1,4 +1,4 @@
-# API Consulta CPF
+# API NF-e
 
 API para acesso ao Cadastro de Pessoas Físicas diretamente das bases da Receita Federal do Brasil.
 
@@ -11,14 +11,14 @@ AJUDA DO ROGÉRIO AQUI! :D
 
 ## Como fazer consultas
 
-Para consumir a API Consulta CPF, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
+Para consumir a API NF-e, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
 Exemplos de códigos:
 
 **Consumer Key**: uldY78ZMvYm4btC0x3XZLG7ZTsYa
 
 **Consumer Secret**: WyUeBFCUK7wu1Ko61V7bb7yB2Uoa
 
-O APIGov utiliza o protocolo de autorização OAUTH2 para disponibilizar o acesso à API Consulta CPF. No exemplo abaixo, estamos utilizando o GranType Cliente Credentials para requisição de token e acesso a API:
+O APIGov utiliza o protocolo de autorização OAUTH2 para disponibilizar o acesso à API NF-e. No exemplo abaixo, estamos utilizando o GranType Cliente Credentials para requisição de token e acesso a API:
 
 ### 1 – Como solicitar o Token de Acesso
 Para consultar a API, um Token deverá ser informado. O Token tem sua validade definida de acordo com a API. Para solicitar o Token, os seguintes procedimentos deverão ser realizados:
@@ -59,7 +59,7 @@ O Gateway informará as informações do Token no seguinte padrão:
 De posse do Token de Acesso, faça uma requisição via GET ao gateway informando os parâmetros da API. Exemplo:
 
 ```curlBearer
-curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999"
+curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/nfe/v1/12345678912345678912345678912345678912345678"
 ```
 
 No exemplo acima foram utilizados os seguintes parametros:
@@ -68,7 +68,7 @@ No exemplo acima foram utilizados os seguintes parametros:
 
 **[HEADER] Authorization: Bearer <span class="bearer">c66a7de41c96f7008a0c397dc588b6d7</span>** - Informamos o token de acesso recebido
 
-**[GET] https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999**: chamamos a url da API informando o CPF. No caso a url é "consulta-cpf/v1/cpf/{numero do CPF}"
+**[GET] https://apigateway.serpro.gov.br/nfe/v1/12345678912345678912345678912345678912345678**: chamamos a url da API informando a chave de acesso da Nota Fiscal Eletrônica. No caso a url é "nfe/v1/{Chave de Acesso da NF-e}"
 
 Nesse caso, espera-se que a resposta seja a seguinte:
 
@@ -76,7 +76,7 @@ Nesse caso, espera-se que a resposta seja a seguinte:
 {
   "ni": "91708635203", 
   "nome": "Nome do CPF 917.086.352-03", 
-  "nascimento": "01012015", 
+  "nascimento": "01011975", 
   "situacao": {
     "codigo" : "0", 
     "descricao" : "Regular"
