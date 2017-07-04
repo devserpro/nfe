@@ -1,6 +1,6 @@
 # API NF-e
 
-API para acesso ao Cadastro de Pessoas Físicas diretamente das bases da Receita Federal do Brasil.
+API para acesso a Notas Fiscais Eletrônicas diretamente das bases da Receita Federal do Brasil através de sua chave de acesso.
 
 ## Como funciona a autenticação e autorização
 
