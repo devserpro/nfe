@@ -1,4 +1,4 @@
-# API NF-e
+# Consulta NF-e
 
 API para acesso a Notas Fiscais Eletrônicas diretamente das bases da Receita Federal do Brasil através de sua chave de acesso.
 
@@ -6,9 +6,9 @@ A plataforma APIGOV (Plataforma que contempla todas as API's disponibilizadas e 
 
 <img title="Processo de autenticação e autorização APIS" src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/oauth.png" style="width=50%;" />
 
-## Como fazer consultas a API NF-e
+## Como fazer consultas a Consulta NF-e
 
-Para consumir a API NF-e, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
+Para consumir a Consulta NF-e, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
 Exemplos de códigos:
 
 **Consumer Key**: djaR21PGoYp1iyK2n2ACOH9REdUb
@@ -270,3 +270,21 @@ Nesse caso, espera-se que a resposta seja a seguinte:
 }
 ```
 
+```trialSpanNFEs
+Chaves de Acesso NF-e para ambiente TRIAL:
+
+1) 35170608530528000184550000000154301000771561
+2) 35161147508411011603551000077959551093041003
+3) 53131205035672000156550010000004991543410167
+4) 42140612687276000179550010001505671172228752
+5) 35140903608306000202555000001100251571436929
+6) 53150337992500000167550010000029521000029516
+7) 31150917591579000107550010000014321081035918
+8) 35151200991908000104550020000063951000184833
+9) 31160906347409006953550110008369841081956475
+10) 31170309339936000973550250002397736362483965
+11) 35160900623904000335550010028792431858713854
+12) 35170300776574000156550020009091941178378523
+
+Atenção: As Chaves de Acesso acima foram geradas aleatoriamente contendo apenas dados fictícios.
+```
