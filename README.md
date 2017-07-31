@@ -11,9 +11,9 @@ A plataforma APIGOV (Plataforma que contempla todas as API's disponibilizadas e 
 Para consumir a API NF-e, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
 Exemplos de códigos:
 
-**Consumer Key**: uldY78ZMvYm4btC0x3XZLG7ZTsYa
+**Consumer Key**: djaR21PGoYp1iyK2n2ACOH9REdUb
 
-**Consumer Secret**: WyUeBFCUK7wu1Ko61V7bb7yB2Uoa
+**Consumer Secret**: ObRsAJWOL4fv2Tp27D1vd8fB3Ote
 
 ### 1 – Como solicitar o Token de Acesso (Bearer)
 Para consultar a API, é necessário obter um token de acesso temporário (Bearer). Esse token possui um tempo de validade e sempre que expirado, este passo de requisição de um novo token de acesso deve ser repetido. 
@@ -28,14 +28,14 @@ Para solicitar o token temporário é necessário realizar uma requisição HTTP
 Abaixo segue um exemplo de chamada via cUrl:
 
 ```curl
-curl -k -d "grant_type=client_credentials" -H "Authorization: Basic dWxkWTc4Wk12WW00YnRDMHgzWFpMRzdaVHNZYTpXeVVlQkZDVUs3d3UxS282MVY3YmI3eUIyVW9h" https://apigateway.serpro.gov.br/token
+curl -k -d "grant_type=client_credentials" -H "Authorization: Basic ZGphUjIxUEdvWXAxaXlLMm4yQUNPSDlSRWRVYjpPYlJzQUpXT0w0ZnYyVHAyN0QxdmQ4ZkIzT3RlCg" https://apigateway.serpro.gov.br/token
 ```
 
-A chave informada no exemplo acima "dWxkWTc4Wk12WW00YnRDMHgzWFpMRz
-daVHNZYTpXeVVlQkZDVUs3d3UxS282MVY3YmI3eUIyVW9h" é resultado do BASE64 dos códigos Consumer Key e Consumer Secret separados pelo caracter “:”, conforme exemplo a seguir:
+A chave informada no exemplo acima "ZGphUjIxUEdvWXAxaXlLMm4yQUNPSD
+lSRWRVYjpPYlJzQUpXT0w0ZnYyVHAyN0QxdmQ4ZkIzT3RlCg" é resultado do BASE64 dos códigos Consumer Key e Consumer Secret separados pelo caracter “:”, conforme exemplo a seguir:
 
 ```curl
-base64(uldY78ZMvYm4btC0x3XZLG7ZTsYa:WyUeBFCUK7wu1Ko61V7bb7yB2Uoa)
+echo "djaR21PGoYp1iyK2n2ACOH9REdUb:ObRsAJWOL4fv2Tp27D1vd8fB3Ote" | base64
 ```
 
 **Receba o Token**
@@ -65,7 +65,7 @@ No exemplo acima foram utilizados os seguintes parametros:
 
 **[HEADER] Authorization: Bearer <span class="bearer">c66a7de41c96f7008a0c397dc588b6d7</span>** - Informamos o token de acesso recebido
 
-**[GET] https://apigateway.serpro.gov.br/nfe/v1/12345678912345678912345678912345678912345678**: chamamos a url da API informando a chave de acesso da Nota Fiscal Eletrônica. No caso a url é "nfe/v1/{Chave de Acesso da NF-e}"
+**[GET] https://apigateway.serpro.gov.br/nfe<span id="trialSpanUrl"></span>/<span id="trialSpanVersao"></span>/12345678912345678912345678912345678912345678**: chamamos a url da API informando a chave de acesso da Nota Fiscal Eletrônica. No caso a url é "nfe<span id="trialSpanUrl2"></span>/<span id="trialSpanVersao2"></span>/{Chave de Acesso da NF-e}"
 
 Nesse caso, espera-se que a resposta seja a seguinte:
 
