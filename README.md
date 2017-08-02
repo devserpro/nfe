@@ -1,4 +1,4 @@
-# Consulta NF-e
+# Consulta NF-e <span id="trialSpan"></span>
 
 API para acesso a Notas Fiscais Eletrônicas diretamente das bases da Receita Federal do Brasil através de sua chave de acesso.
 
