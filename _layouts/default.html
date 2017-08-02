@@ -3,15 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>API NF-e - SERPRO</title>
+    <title>API Consulta NF-e - SERPRO</title>
     <!-- <title>{{ site.title | default: site.github.repository_name }} por {{ site.github.owner_name }} </title>-->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" />
+	<link rel="stylesheet" href="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/css/jPopup.css" />
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="icon" href="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/serpro.png" type="image/png" />
-    <style>
+    
+	<style>
     .botao01{
          background: -webkit-linear-gradient(bottom, #E0E0E0, #F9F9F9 70%);
          background: -moz-linear-gradient(bottom, #E0E0E0, #F9F9F9 70%);
@@ -114,7 +116,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><!--{{ site.title | default: site.github.repository_name }}-->API NF-e</h1>
+        <h1><!--{{ site.title | default: site.github.repository_name }}-->Consulta NF-e</h1>
         <p><!--{{ site.description | default: site.github.project_tagline }}-->Disponibilizado e comercializado pelo SERPRO</p>
 
         {% if site.github.is_project_page %}
