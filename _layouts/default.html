@@ -144,7 +144,8 @@
       {{ content }}
 
       </section>
-      <footer>
+	  
+      <footer style="bottom: 0px !important;">
         {% if site.github.is_project_page %}
         <p>Projeto mantido por <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
@@ -153,6 +154,7 @@
           <img src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo.png" style="width: 50%;" title="SERPRO" />
         </div>
       </footer>
+	  
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 	<script src="https://cdn.rawgit.com/devserpro/api-siafi/master/_layouts/js/jPopup.min.js"></script>
@@ -263,20 +265,6 @@
 	    const ui = SwaggerUIBundle({
 				url: urlSwagger,
 				dom_id: '#swagger-ui',
-				/*onComplete: function(swaggerApi, swaggerUi) {
-					var bearerValue = getParameterByName("bearer"); == null ? '' : getParameterByName("bearer")), "header");
-					if (bearerValue != null) {
-						var key = 'Bearer ' +  bearerValue;
-						var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
-						swaggerApi.clientAuthorizations.add("api_key", apiKeyAuth);
-						log("added key " + key);
-						alert(key);
-						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
-					}
-				},*/
-				//onComplete: alert('Bearer ' +  getParameterByName("bearer")) /*document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer")*/,
-				//onComplete: recuperarBearer(),
-				//onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
 				"securityDefinitions": {
 					"login": {
 						"type": "oauth2"
@@ -290,17 +278,9 @@
 				  SwaggerUIBundle.plugins.DownloadUrl
 				],
 				layout: "StandaloneLayout"
-			  });
+			});
 
-			  //window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-			  //window.ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-			  window.ui = ui;
-			  
-			  //var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
-			  //window.authorizations.add('apiKey', authKey);
-			  
-			//var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-			//var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+			window.ui = ui;
 			
 			var w = window,
 			d = document,
