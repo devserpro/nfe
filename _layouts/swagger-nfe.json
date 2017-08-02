@@ -1,0 +1,33 @@
+{
+  "basePath":"/nfe/1", 
+  "paths":{
+    "/{chave}":{
+      "get":{
+        "x-auth-type":"Bearer",
+        "x-throttling-tier":"Unlimited",
+        "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
+        "produces":["application/json"],
+        "parameters":[{"name":"chave","in":"path","required":true,"type":"string"}],
+        "responses":{
+          "200":{
+            "description":"Retorna os dados da NFe corresponde a chave de acesso passada por parâmetro"},
+          "400":{
+            "description":"A chave de acesso informada não é válida."},
+          "404":{
+            "description":"Não existe NF-e com chave de acesso informada."}}}}},
+  "host":"apigateway.serpro.gov.br",
+  "security":[{"Bearer": []}],
+  "schemes":["https","http"],
+  "swagger":"2.0",
+  "consumes":["application/json"],
+  "securityDefinitions":{
+      "Bearer" : {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header" }
+    },
+  "info":{
+    "title":"Consulta NF-e",
+    "description":"API para acesso a Notas Fiscais Eletrônicas, em tempo real, diretamente das bases de Governo.",
+    "version":"1"}
+}
