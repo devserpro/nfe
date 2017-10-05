@@ -193,7 +193,7 @@
       if (bearer != null && amb != null) {
 		var exec;
 		if (amb == 1) {
-			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/nfe/v1/99999999999999\"";
+			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/nfe/1/99999999999999\"";
 			var div = document.getElementsByClassName('language-trialSpanNFEs');
 			var divTrial = div[0];
 			divTrial.parentElement.style = 'display: none';
@@ -203,7 +203,7 @@
 			document.getElementById('trialSpanVersao').innerHTML = '1';
 			document.getElementById('trialSpanVersao2').innerHTML = '1';
 		} else if (amb == 2) {
-			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/nfe-trial/v1/99999999999999\"";
+			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/nfe-trial/1/99999999999999\"";
 			document.getElementById('trialSpan').innerHTML = ' - TRIAL';
 			var logoImg = document.getElementById("imgLogoApi");
 			logoImg.src = "https://raw.githubusercontent.com/devserpro/nfe/master/img/logo-consulta-nfe-trial.png";
