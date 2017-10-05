@@ -56,7 +56,7 @@ Atentar que sempre que o token de acesso temporário expirar, o gateway vai reto
 De posse do Token de Acesso, faça uma requisição via GET ao gateway informando os parâmetros da API. Exemplo:
 
 ```curlBearer
-curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/nfe/v1/12345678912345678912345678912345678912345678"
+curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/nfe/1/12345678912345678912345678912345678912345678"
 ```
 
 No exemplo acima foram utilizados os seguintes parametros:
