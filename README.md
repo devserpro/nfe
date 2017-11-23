@@ -287,7 +287,8 @@ Chaves de Acesso NF-e para ambiente TRIAL:
 12) 35170300776574000156550020009091941178378523
 
 Atenção: As Chaves de Acesso acima foram geradas aleatoriamente contendo apenas dados fictícios.
+```
 
-### 2 – Detalhamento dos Campos da NF-e
+### 3 – Detalhamento dos Campos da NF-e
 Abra o arquivo NFE_Campos_SUNNG.ods e veja os campos e comentários da NF-e.
 ```
