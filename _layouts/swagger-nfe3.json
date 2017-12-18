@@ -1,7 +1,7 @@
 {
   "basePath":"/nfe/1", 
   "paths":{
-    "/{chave}":{
+    "/nfe/{chave}":{
       "get":{
         "x-auth-type":"Bearer",
         "x-throttling-tier":"Unlimited",
