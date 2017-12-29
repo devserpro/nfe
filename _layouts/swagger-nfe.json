@@ -1,33 +1,63 @@
 {
-  "basePath":"/nfe/1", 
-  "paths":{
-    "/nfe/{chave}":{
-      "get":{
-        "x-auth-type":"Bearer",
-        "x-throttling-tier":"Unlimited",
-        "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
-        "produces":["application/json"],
-        "parameters":[{"name":"chave","in":"path","required":true,"type":"string"}],
-        "responses":{
-          "200":{
-            "description":"Retorna os dados da NFe corresponde a chave de acesso passada por parâmetro"},
-          "400":{
-            "description":"A chave de acesso informada não é válida."},
-          "404":{
-            "description":"Não existe NF-e com chave de acesso informada."}}}}},
-  "host":"apigateway.serpro.gov.br",
-  "security":[{"Bearer": []}],
-  "schemes":["https","http"],
-  "swagger":"2.0",
-  "consumes":["application/json"],
-  "securityDefinitions":{
-      "Bearer" : {
+  "host": "apigateway.serpro.gov.br",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
       "type": "apiKey",
       "name": "Authorization",
-      "in": "header" }
-    },
-  "info":{
-    "title":"Consulta NF-e",
-    "description":"API para acesso a Notas Fiscais Eletrônicas, em tempo real, diretamente das bases de Governo.",
-    "version":"1"}
+      "in": "header"
+    }
+  },
+  "swagger": "2.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "info": {
+    "version": "1.0",
+    "title": "Consulta NF-e",
+    "description": "O serviço `Consulta Nota Fiscal Eletrônica (NF-e)` é disponibilizado através do `HTTP REST` oferencendo operação para consulta de informações referentes a uma determinada NF-e, através de sua chave de acesso.\n## Códigos de Retorno\n| Código de retorno | Resumido | Explicação |\n| ------------- |:--------------------|:-----------------------------------------------------------------------------|\n| 200           | OK                  | A requisição foi processada com sucesso, e a NF-e disponibilizada |\n| 400           | Requisição inválida | A chave da NF-e não está no formato correto |\n| 404           | NF-e não encontrada | A NF-e com a chave informada não foi localizada na base |\n| 500           | Erro no servidor    | Ocorreu algum erro interno.      |\n\n<br> As informações da NF-e disponibilizadas estão de acordo com o leiaute da NF-e (exceto item **ZX. Informações Suplementares da Nota Fiscal**), disponibilizado pelo Encontro Nacional de Coordenadores e Administradores Tributários Estaduais (ENCAT). \n<br>\nAs Notas Técnicas com as informações de leiaute da NF-e estão disponíveis para *download* em http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=\n<br>\nA estrutura do JSON de retorno seguem as mesmas especificações dos esquemas XML dos Web Services, disponibilizados em http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=/fwLvLUSmU8=\n<br> <br>\n## Endereço de Produção\n    https://apigateway.serpro.gov.br/nfe/1/{chave}\n    \n## Endereço de Degustação\n    https://apigateway.serpro.gov.br/nfe-trial/1/nfe/{chave}\n    \n<br> <br>\n## Chaves de acesso para degustação\n\n| Chave de Acesso |\n|:----------------|\n| 35170608530528000184550000000154301000771561 |\n| 35161147508411011603551000077959551093041003 |\n| 53131205035672000156550010000004991543410167 |\n| 42140612687276000179550010001505671172228752 |\n| 35140903608306000202555000001100251571436929 |\n| 53150337992500000167550010000029521000029516 |\n| 31150917591579000107550010000014321081035918 |\n| 35151200991908000104550020000063951000184833 |\n| 31160906347409006953550110008369841081956475 |\n| 31170309339936000973550250002397736362483965 |\n| 35160900623904000335550010028792431858713854 |\n| 35170300776574000156550020009091941178378523 |\n| 53160911510448000171550010000106771000106778 |\n| 52160819015622000111550010000007051300807382 |\n| 53160621182711000102550010000012921000012924 |\n| 52160609303953000101550010000008711000003354 |\n| 53151205642646000196550010000287891000287891 |\n| 53160713453539000148550010000009101000009107 |\n| 52151013766790000162550010000028401250001000 |\n| 53160705642646000196550010000298141000298148 |\n| 52160400945852000151550010000041771020608010 |\n<br> <br>\n## Exemplo de chamada e Retorno\n### Chamada\n    https://apigateway.serpro.gov.br/nfe/1/35161147508411011603551000077959551093041003\n    \n### Retorno\n\n    {\n    \"nfeProc\": {\n        \"protNFe\": {\n            \"infProt\": {\n                \"nProt\": 135160681068641,\n                \"dhRecbto\": \"2016-11-01T12:55:14-02:00\",\n                \"Id\": \"Id135160681068642\",\n                \"chNFe\": \"35161147508411011603551000077959551093041003\",\n                \"xMotivo\": \"Autorizado o uso da NF-e\",\n                \"cStat\": 100\n            }\n        },\n        \"NFe\": {\n            \"infNFe\": {\n                \"infAdic\": {\n                    \"infCpl\": \"A CONTRIBUICAO RURAL SERA RECOLHIDA CONFORME LEI VIGENTE                   COD.FORN: 03170 - NF.FORN: 000010218 000 000000000                         N.DE ORDEM - 06.163.111-0                                                  IE:  0011661970605                                                         COND.PAGTO. 02154      DAT.VENCTO 21/12/2016                               CD: 930 FORN: 3170 SECAO: 22 SEQ: 61635430 CRT 3\"\n                },\n                \"det\": {\n                    \"nItem\": 1,\n                    \"prod\": {\n                        \"cEAN\": \"\",\n                        \"cProd\": \"0008891\",\n                        \"qCom\": 1120,\n                        \"cEANTrib\": \"\",\n                        \"vUnTrib\": 46,\n                        \"qTrib\": 1120,\n                        \"vProd\": 51520,\n                        \"xProd\": \"TOMATE 2A                     CD KG\",\n                        \"vUnCom\": 46,\n                        \"indTot\": 1,\n                        \"uTrib\": 20,\n                        \"NCM\": \"07020000\",\n                        \"uCom\": 20,\n                        \"CFOP\": 2102\n                    },\n                    \"imposto\": {\n                        \"ICMS\": {\n                            \"ICMS40\": {\n                                \"orig\": 0,\n                                \"CST\": 41\n                            }\n                        },\n                        \"COFINS\": {\n                            \"COFINSOutr\": {\n                                \"vCOFINS\": 0,\n                                \"CST\": 99,\n                                \"vBC\": 0,\n                                \"pCOFINS\": 0\n                            }\n                        },\n                        \"PIS\": {\n                            \"PISOutr\": {\n                                \"vPIS\": 0,\n                                \"CST\": 99,\n                                \"vBC\": 0,\n                                \"pPIS\": 0\n                            }\n                        }\n                    }\n                },\n                \"total\": {\n                    \"ICMSTot\": {\n                        \"vICMSUFDest\": 0,\n                        \"vICMSUFRemet\": 0,\n                        \"vCOFINS\": 0,\n                        \"vBCST\": 0,\n                        \"vICMSDeson\": 0,\n                        \"vFCPUFDest\": 0,\n                        \"vProd\": 51520,\n                        \"vSeg\": 0,\n                        \"vNF\": 51520,\n                        \"vPIS\": 0,\n                        \"vBC\": 0,\n                        \"vST\": 0,\n                        \"vICMS\": 0,\n                        \"vII\": 0,\n                        \"vDesc\": 0,\n                        \"vOutro\": 0,\n                        \"vIPI\": 0,\n                        \"vFrete\": 0\n                    }\n                },\n                \"entrega\": {\n                    \"UF\": \"SP\",\n                    \"xLgr\": \"ESTRADA FICTICIA, 10\",\n                    \"xMun\": \"SAO PAULO\",\n                    \"CNPJ\": 82743369000159,\n                    \"nro\": 20,\n                    \"cMun\": 3550308,\n                    \"xBairro\": \"JARDIM FICTICIO\"\n                },\n                \"Id\": \"NFe35161147508411011603551000077959551093041003\",\n                \"ide\": {\n                    \"tpNF\": 0,\n                    \"mod\": 55,\n                    \"indPres\": 9,\n                    \"tpImp\": 1,\n                    \"nNF\": 7795955,\n                    \"cMunFG\": 3550308,\n                    \"procEmi\": 0,\n                    \"finNFe\": 1,\n                    \"dhEmi\": \"2016-11-01T12:54:01-02:00\",\n                    \"tpAmb\": 1,\n                    \"indFinal\": 0,\n                    \"dhSaiEnt\": \"2016-11-01T12:54:01-02:00\",\n                    \"idDest\": 2,\n                    \"tpEmis\": 1,\n                    \"cDV\": 2,\n                    \"cUF\": 35,\n                    \"NFref\": {\n                        \"refNFP\": {\n                            \"mod\": \"04\",\n                            \"cUF\": 31,\n                            \"nNF\": 10218,\n                            \"CPF\": 48402166733,\n                            \"serie\": 0,\n                            \"IE\": \"0023123456789\",\n                            \"AAMM\": 1610\n                        }\n                    },\n                    \"serie\": 100,\n                    \"natOp\": \"COMPRAS\",\n                    \"cNF\": \"09304100\",\n                    \"verProc\": \"NDDigital NFe 4.5.3\",\n                    \"indPag\": 2\n                },\n                \"emit\": {\n                    \"CNAE\": \"0000000\",\n                    \"xNome\": \"CIA BRASILEIRA FICTICIA\",\n                    \"IM\": 0,\n                    \"CRT\": 3,\n                    \"xFant\": \"CIA BRASILEIRA FICTICIA\",\n                    \"CNPJ\": 24631565000135,\n                    \"enderEmit\": {\n                        \"fone\": \"00000005551234\",\n                        \"UF\": \"SP\",\n                        \"xPais\": \"BRASIL\",\n                        \"cPais\": 1058,\n                        \"xLgr\": \"ESTRADA FICTICIA, 20\",\n                        \"xMun\": \"SAO PAULO\",\n                        \"nro\": 20,\n                        \"cMun\": 3550308,\n                        \"xBairro\": \"JARDIM FICTICIO\",\n                        \"CEP\": \"00012300\"\n                    },\n                    \"IE\": 123456789123\n                },\n                \"dest\": {\n                    \"xNome\": \"ARNALDO FICTICIO ALMEIDA\",\n                    \"CPF\": 11636965792,\n                    \"enderDest\": {\n                        \"fone\": \"0000005551234\",\n                        \"UF\": \"MG\",\n                        \"xPais\": \"BRASIL\",\n                        \"cPais\": 1058,\n                        \"xLgr\": \"RODOVIA MG FICTICIA\",\n                        \"xMun\": \"SAO FICTICIO\",\n                        \"nro\": \"S/N\",\n                        \"cMun\": 3115003,\n                        \"xBairro\": \"ZONA RURAL\",\n                        \"CEP\": 12312300\n                    },\n                    \"IE\": \"1234567891234\",\n                    \"indIEDest\": 1\n                },\n                \"versao\": 3.1,\n                \"retirada\": {\n                    \"UF\": \"SP\",\n                    \"xLgr\": \"ESTRADA FICTICIA, 20\",\n                    \"xMun\": \"SAO PAULO\",\n                    \"CNPJ\": 28352186000167,\n                    \"nro\": 20,\n                    \"cMun\": 3550308,\n                    \"xBairro\": \"JARDIM FICTICIO\"\n                },\n                \"transp\": {\n                    \"modFrete\": 1,\n                    \"vol\": {\n                        \"pesoL\": 0,\n                        \"esp\": \"UNIDADES\",\n                        \"qVol\": 22400,\n                        \"pesoB\": 24640\n                    }\n                }\n            }\n        },\n        \"versao\": 3.1\n      }\n    }"
+  },
+  "basePath": "/nfe/1",
+  "paths": {
+    "/{chave}": {
+      "get": {
+        "x-auth-type": "Bearer",
+        "x-throttling-tier": "Unlimited",
+        "description": "Retorna as informações da NF-e com a chave de acesso informada",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chave",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de acesso da NF-e (44 dígitos, sem espaços)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da NF-e correspondente à chave de acesso informada"
+          },
+          "400": {
+            "description": "A chave de acesso informada não é válida."
+          },
+          "404": {
+            "description": "Não existe NF-e com chave de acesso informada."
+          },
+          "500": {
+            "description": "Ocorreu algum erro interno na API."
+          }
+        }
+      }
+    }
+  }
 }
