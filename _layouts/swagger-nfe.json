@@ -41,6 +41,12 @@
             "required": true,
             "type": "string",
             "description": "Chave de acesso da NF-e (44 dígitos, sem espaços)"
+          },
+          {
+            "description": "Solicitação de assinatura de carimbo de tempo. Informe 1 para assinar, ou deixe em branco para não assinar.",
+            "name": "signature",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
